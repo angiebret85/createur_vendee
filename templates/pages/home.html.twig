@@ -57,6 +57,23 @@
         </div>
     <div>
 <div>
+<div classs="container">
+    <h2>Les créateurs</h2>
+    <div class="row flex">
+        {% for createur in createurs %}
+            <div class="col-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <a href="{{ path('createur.show', {id: createur.id, slug: createur.slug}) }}">{{ createur.title }}</a>
+                        </h5>
+                        <p class="card-text">{{ createur.ville }} ({{createur.codepostal}})</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
 <div class="card-deck m-5">
   <div class="card">
     <img class="card-img-top" src="../assets/images/anne_gael_atelier362x200.jpg" alt="Card image cap">

@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title createur.title %}
+
+{% block body %}
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+
+            </div>
+            <div class="col-md-4">
+                <h1>{{ createur.title }}</h1>
+                <h2>{{ createur.description }}<h2>
+                <div class="text-primary">{{ createur.ville}}</div>
+                <a href="#" class="btn btn-primary">Contacter le créateur</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-4">
+
+            <p>
+                {{ createur.description | nl2br }}
+            </p>
+            <div class="row">
+                <div class="col-md-8">
+                    <h2>Cordonnées</h2>
+                    <table class="table table-striped">
+                        <tr>
+                            <td>Mini descriptif</td>
+                            <td>{{ createur.minidescriptif }} </td>
+                        </tr>
+                        <tr>
+                            <td>mail</td>
+                            <td>{{ createur.email }}</td>
+                        </tr>
+                        <tr>
+                            <td>Telephone</td>
+                            <td>{{ createur.telephone }}</td>
+                        </tr>
+                        <tr>
+                            <td>Facebook</td>
+                            <td>{{ createur.facebook }}</td>
+                        </tr>
+                        <tr>
+                            <td>Twitter</td>
+                            <td>{{ createur.twitter }}</td>
+                        </tr>
+                    </table>
+                </div>
+               <div class="col-md-4">
+               <h2>Images</h2>
+               
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

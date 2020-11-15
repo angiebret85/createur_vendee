@@ -19,6 +19,18 @@ class CreateurRepository extends ServiceEntityRepository
         parent::__construct($registry, Createur::class);
     }
 
+    
+    /**
+     * @return Createur[]
+     */
+    public function findLatest(): array
+    {
+        return $this->createQueryBuilder('p')
+            ->setMaxResults(6)
+            ->getQuery()
+            ->getResult();
+    }
+
     // /**
     //  * @return Createur[] Returns an array of Createur objects
     //  */

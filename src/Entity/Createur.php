@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\CreateurRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Cocur\Slugify\Slugify;
 
 /**
  * @ORM\Entity(repositoryClass=CreateurRepository::class)
@@ -102,6 +103,11 @@ class Createur
         $this->title = $title;
 
         return $this;
+    }
+
+    public function getSlug(): string
+    {
+        return (new Slugify())->slugify($this->title);
     }
 
     public function getNom(): ?string
