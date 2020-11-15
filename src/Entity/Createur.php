@@ -2,12 +2,11 @@
 
 namespace App\Entity;
 
-use App\Repository\CreateurRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Cocur\Slugify\Slugify;
 
 /**
- * @ORM\Entity(repositoryClass=CreateurRepository::class)
+ * @ORM\Entity
  */
 class Createur
 {
