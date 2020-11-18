@@ -4,8 +4,12 @@ namespace App\Controller;
 
 use App\Repository\CreateurRepository;
 use App\Entity\Createur;
+use App\Entity\CreateurSearch;
+use App\Form\CreateurSearchType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Knp\Component\Pager\PaginatorInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -21,6 +25,12 @@ class CreateurController extends AbstractController
      */
     private $em;
 
+    /**
+     * @var PaginatorInterface
+     */
+    private $paginator;
+
+
     public function __construct (CreateurRepository $repository, EntityManagerInterface $em)
     {
         $this->repository = $repository;
@@ -29,12 +39,21 @@ class CreateurController extends AbstractController
 
     /**
      * @Route("/createurs", name="createur.index")
+     * @param PaginatorInterface $paginator
+     * @param Request $request
      * @return Response
      */
-    public function index(): Response
+    public function index(Request $request, PaginatorInterface $paginator): Response
     {
+        $search = new CreateurSearch();
+        $form = $this->createForm(CreateurSearchType::class, $search);
+        $form->handleRequest($request);
+        $createurs = $paginator->paginate($this->repository->findAllQuery($search),
+        $request->query->getInt('page',1),12);
         return $this->render('createur/index.html.twig', [
-            'current_menu' => 'createurs'
+            'current_menu' => 'createurs',
+            'createurs' => $createurs,
+            'form' => $form->createView()
         ]);
     }
 

@@ -3,7 +3,10 @@
 namespace App\Repository;
 
 use App\Entity\Createur;
+use App\Entity\CreateurSearch;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\Migrations\Query\Query;
+use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -19,7 +22,26 @@ class CreateurRepository extends ServiceEntityRepository
         parent::__construct($registry, Createur::class);
     }
 
-    
+    /**
+     * @param CreateurSearch $search
+     * @return \Doctrine\ORM\Query
+     */
+    public function findAllQuery(CreateurSearch $search): \Doctrine\ORM\Query
+    {
+        $query = $this->findAllCreateurs();
+
+        if ($search->getcodePostalSearch()){
+            $query = $query
+                ->andwhere('p.codepostal = :codePostalSearch')
+                ->setParameter('codePostalSearch', $search->getcodePostalSearch());
+        }
+        if($search->getvilleSearch()){
+            $query = $query
+                ->andWhere('p.ville = :villeSearch')
+                ->setParameter('villeSearch', $search->getvilleSearch());
+        }
+        return $query->getQuery();
+    }
     /**
      * @return Createur[]
      */
@@ -30,6 +52,14 @@ class CreateurRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }
+
+    
+    public function findAllCreateurs(): QueryBuilder
+    {
+        return $this->createQueryBuilder('p');
+    }
+
+
 
     // /**
     //  * @return Createur[] Returns an array of Createur objects

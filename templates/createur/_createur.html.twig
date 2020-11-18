@@ -1,0 +1,12 @@
+<div class="card mb-4">
+    <div class="card-body">
+        <h5 class="card-title">
+            <a href="{{ path('createur.show', {slug: createur.slug, id: createur.id}) }}">
+                {{ createur.title }}
+            </a>
+        </h5>
+        <p class="card-text">{{ createur.ville }} ({{ createur.codepostal }})</p>
+        <p class="card-text">{{ createur.description }}</p>
+    </div>
+</div>
+
