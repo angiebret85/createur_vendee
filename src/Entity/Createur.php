@@ -2,6 +2,9 @@
 
 namespace App\Entity;
 
+
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Cocur\Slugify\Slugify;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -91,6 +94,16 @@ class Createur
      */
     private $internet;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Categorie::class, inversedBy="createurs")
+     */
+    private $categories;
+
+    public function __construct()
+    {
+        $this->categories = new ArrayCollection();
+    }
+    
     public function getId(): ?int
     {
         return $this->id;
@@ -268,4 +281,33 @@ class Createur
 
         return $this;
     }
+
+    /**
+     * @return Collection|Categorie[]
+     */
+    public function getCategories(): Collection
+    {
+        return $this->categories;
+    }
+
+    public function addCategory(Categorie $category): self
+    {
+        if (!$this->categories->contains($category)) {
+            $this->categories[] = $category;
+            $category->addCreateur($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCategory(Categorie $category): self
+    {
+        if ($this->categories->removeElement($category)) {
+            $category->removeCreateur($this);
+        }
+
+        return $this;
+    }
+
+    
 }

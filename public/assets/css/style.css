@@ -144,3 +144,7 @@ html {
   background-repeat: no-repeat; 
   background-size :  100% 400px; 
 }
+
+.jumbotron {
+  background-image: url("../images/ocean.jpg");
+  background-size: 100% 400px;}

@@ -16,9 +16,14 @@ class CreateurSearch {
      */
     private $villeSearch;
 
+    /**
+     * @var ArrayCollection
+     */
+    private $categories;
+
     public function __construct()
     {
-        $this->options=new ArrayCollection();
+        $this->categories=new ArrayCollection();
     }
 
 
@@ -52,5 +57,20 @@ class CreateurSearch {
     public function setvilleSearch(string $villeSearch): void
     {
         $this->villeSearch = $villeSearch;
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getCategories(): ArrayCollection
+    {
+        return $this->categories;
+    }
+
+    /**
+     * @param ArrayCollection $categories
+     */
+    public function setCategories(ArrayCollection $categories): void{
+        $this->categories = $categories;
     }
 }

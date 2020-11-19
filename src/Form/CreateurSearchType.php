@@ -2,7 +2,9 @@
 
 namespace App\Form;
 
+use App\Entity\Categorie;
 use App\Entity\CreateurSearch;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -27,6 +29,13 @@ class CreateurSearchType extends AbstractType
                 'attr' => [
                     'placeholder' => 'Ville'
                 ]
+            ])
+            ->add('categories', EntityType::class, [
+                'required' => false,
+                'label' => false,
+                'class' => Categorie::class,
+                'choice_label' => 'name',
+                'multiple' => true
             ])
         ;
     }

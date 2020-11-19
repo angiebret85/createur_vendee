@@ -2,7 +2,9 @@
 
 namespace App\Form;
 
+use App\Entity\Categorie;
 use App\Entity\Createur;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -36,6 +38,11 @@ class CreateurType extends AbstractType
             ->add('instagram')
             ->add('twitter')
             ->add('internet')
+            ->add ('categories', EntityType::class, [
+                'class' => Categorie::class,
+                'choice_label' => 'name',
+                'multiple' => true
+            ])
         ;
     }
 

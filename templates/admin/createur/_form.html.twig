@@ -23,5 +23,6 @@
         <div class="col-md-4">{{ form_row(form.twitter) }}</div>
         <div class="col-md-4">{{ form_row(form.internet) }}</div>
     </div>
+    {{ form_rest(form) }}
     <button class="btn btn-secondary">{{ button|default('Enregistrer') }}</button>
     {{ form_end(form) }}

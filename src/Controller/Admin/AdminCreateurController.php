@@ -1,6 +1,7 @@
 <?php
 namespace App\Controller\Admin;
 
+use App\Entity\Categorie;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use App\Entity\Createur;
 use App\Form\CreateurType;
@@ -63,6 +64,8 @@ class AdminCreateurController extends AbstractController{
      * @Route("/admin/createur/{id}", name="admin.createur.edit", methods={"GET","POST"})
      */
     public function edit(Createur $createur, Request $request){
+
+       
         $form = $this->createForm(CreateurType::class, $createur);
         $form->handleRequest($request);
 

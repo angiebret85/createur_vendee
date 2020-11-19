@@ -40,6 +40,15 @@ class CreateurRepository extends ServiceEntityRepository
                 ->andWhere('p.ville = :villeSearch')
                 ->setParameter('villeSearch', $search->getvilleSearch());
         }
+        if ($search->getCategories()->count() > 0){
+            $k=0;
+           foreach($search->getCategories() as $categorie){
+               $k++;
+               $query = $query
+                ->andWhere(":categorie$k MEMBER OF p.categories")
+                ->setParameter("categorie$k", $categorie);
+           }
+        }
         return $query->getQuery();
     }
     /**
