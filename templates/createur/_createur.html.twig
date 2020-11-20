@@ -1,4 +1,7 @@
 <div class="card mb-4">
+    {% if createur.image %}
+        <img src="{{ asset('/uploads/' ~ createur.image.name) }} " alt="card-img-top" width="100%" height="auto">
+    {% endif %}
     <div class="card-body">
         <h5 class="card-title">
             <a href="{{ path('createur.show', {slug: createur.slug, id: createur.id}) }}">

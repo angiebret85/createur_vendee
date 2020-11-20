@@ -148,3 +148,7 @@ html {
 .jumbotron {
   background-image: url("../images/ocean.jpg");
   background-size: 100% 400px;}
+
+.divImgAdminCreateur {
+  display: inline;
+}

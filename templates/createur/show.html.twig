@@ -7,7 +7,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8">
-
+            
             </div>
             <div class="col-md-4">
                 <h1>{{ createur.title }}</h1>
@@ -25,7 +25,7 @@
                 {{ createur.description | nl2br }}
             </p>
             <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-4">
                     <h2>Cordonnées</h2>
                     <table class="table table-striped">
                         <tr>
@@ -50,9 +50,18 @@
                         </tr>
                     </table>
                 </div>
-               <div class="col-md-4">
-               <h2>Images</h2>
-               
+               <div class="col-md-8" display= "inline" >
+               <h2>Réalisations</h2>
+               <div class="row">
+               {% if createur.images %}
+        {% for image in createur.images %}
+            <div class="col-md-4" >
+            
+                <img src="{{ asset('/uploads/' ~ image.name) }}" alt="card-img-top" width="200px" >
+                <p></p>
+            </div>    
+        {% endfor %} 
+    {% endif %}
             </div>
         </div>
     </div>
