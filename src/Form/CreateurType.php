@@ -50,6 +50,9 @@ class CreateurType extends AbstractType
                 'mapped' => false,
                 'required' => false
             ])
+            
+            ->add('lat')
+            ->add('lng')
         ;
     }
 

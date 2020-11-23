@@ -88,6 +88,7 @@ class AdminCreateurController extends AbstractController{
        
         $form = $this->createForm(CreateurType::class, $createur);
         $form->handleRequest($request);
+        $images=null;
 
         if($form->isSubmitted() && $form->isValid()){
             //on récupère les images transmises

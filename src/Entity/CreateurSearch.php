@@ -21,6 +21,21 @@ class CreateurSearch {
      */
     private $categories;
 
+    /**
+     * @var integer|null
+     */
+    private $distance;
+
+    /**
+     * @var float|null
+     */
+    private $lat;
+
+    /**
+     * @var float|null
+     */
+    private $lng;
+
     public function __construct()
     {
         $this->categories=new ArrayCollection();
@@ -72,5 +87,83 @@ class CreateurSearch {
      */
     public function setCategories(ArrayCollection $categories): void{
         $this->categories = $categories;
+    }
+
+
+    /**
+     * @return int|null
+     */
+    public function getDistance(): ?int
+    {
+        return $this->distance;
+    }
+
+    /**
+     * @var string|null
+     */
+    private $address;
+
+    /**
+     * @param int|null $distance
+     * @return CreateurSearch
+     */
+    public function setDistance(?int $distance): CreateurSearch
+    {
+        $this->distance = $distance;
+        return $this;
+    }
+
+    /**
+     * @return float|null
+     */
+    public function getLat(): ?float
+    {
+        return $this->lat;
+    }
+
+    /**
+     * @param float|null $lat
+     * @return CreateurSearch
+     */
+    public function setLat(?float $lat): CreateurSearch
+    {
+        $this->lat = $lat;
+        return $this;
+    }
+
+    /**
+     * @return float|null
+     */
+    public function getLng(): ?float
+    {
+        return $this->lng;
+    }
+
+    /**
+     * @param float|null $lng
+     * @return CreateurSearch
+     */
+    public function setLng(?float $lng): CreateurSearch
+    {
+        $this->lng = $lng;
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getAddress(): ?string
+    {
+        return $this->address;
+    }
+
+    /**
+     * @param string|null $address
+     * @return CreateurSearch
+     */
+    public function setAddress(?string $address): CreateurSearch
+    {
+        $this->address = $address;
+        return $this;
     }
 }

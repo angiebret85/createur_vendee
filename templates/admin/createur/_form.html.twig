@@ -10,19 +10,18 @@
         <div class="col-md-4">
             <div class="row flex">
                 {# Vérifier si la route est "admin.createur.edit" on affiche les images #}
-                {% if app.request.attributes.get('_route') == 'admin.createur.edit' %}
+                {#% if app.request.attributes.get('_route') == 'admin.createur.edit' %#}
                     {% for image in createur.images %}
                     <div class="col" style="width: 100px; flex: none; margin: 5px;">
                         <img src="{{ asset('/uploads/' ~ image.name) }}" alt="Image" width="100px">
-                        <button class="btn btn-primary" style="margin: 5px;"><a href="{{ path('admin.createur.delete.image', {'id': image.id}) }}"
-                        data-delete data-token="{{ csrf_token('delete' ~ image.id) }}"></a>Supprimer</button>
+                        <a href="{{ path('admin.createur.delete.image', {'id': image.id}) }}" class="btn btn-danger" data-delete data-token="{{ csrf_token('delete' ~ image.id) }}">Supprimer</a>
                     </div>
                     {% endfor %}    
-                {% endif %}
+                {#% endif %#}
             </div>
         </div>
     </div>
-    <div class="row">
+    <div class="row">  
         <div class="col-md-4">{{ form_row(form.minidescriptif) }}</div>
         <div class="col-md-8">{{ form_row(form.description) }}</div>
     </div>
@@ -30,6 +29,10 @@
         <div class="col-md-4">{{ form_row(form.adresse) }}</div>
         <div class="col-md-4">{{ form_row(form.codepostal) }}</div>
         <div class="col-md-4">{{ form_row(form.ville) }}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">{{ form_row(form.lat) }}</div>
+        <div class="col-md-6">{{ form_row(form.lng) }}</div>
     </div>
     <div class="row">
         <div class="col-md-4">{{ form_row(form.telephone) }}</div>
@@ -41,6 +44,7 @@
         <div class="col-md-4">{{ form_row(form.twitter) }}</div>
         <div class="col-md-4">{{ form_row(form.internet) }}</div>
     </div>
+    
     {{ form_rest(form) }}
     
     <button class="btn btn-secondary">{{ button|default('Enregistrer') }}</button>

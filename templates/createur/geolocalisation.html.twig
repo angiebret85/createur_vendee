@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Géolocalisation' %}
+
+{% block body %}
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col align-center">
+                <h1>Géolocalisation des créateurs</h1>
+                <h6>Retrouvez vos créateurs sur la carte</h6>
+            </div>
+        </div>
+    </div>
+</div>
+{% for createur in createurs %}
+    <div  style="width: 100%; height: 800px;" id="map" data-lat="{{ createur.lat }}" data-lng="{{ createur.lng }}">
+ 
+{% endfor %}
+</div>
+{% endblock %}
+{% block stylesheet %}
+<link rel="stylesheet" href="{{ asset('/assets/css/style.css') }}">
+{% endblock %}
+
+{% block javascripts %}
+<script src="{{asset('/assets/js/select.js') }}"></script>
+<script src="{{ asset('/assets/js/geolocgeneral.js') }}"></script>
+{% endblock %}

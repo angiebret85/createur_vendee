@@ -6,6 +6,7 @@ use App\Repository\CreateurRepository;
 use App\Entity\Createur;
 use App\Entity\CreateurSearch;
 use App\Form\CreateurSearchType;
+use App\Form\CreateurType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Knp\Component\Pager\PaginatorInterface;
@@ -76,4 +77,5 @@ class CreateurController extends AbstractController
             'current_menu' => 'createurs'
         ]);
     }
+
 }

@@ -1,15 +1,17 @@
 <div class="card mb-4">
     {% if createur.image %}
         <img src="{{ asset('/uploads/' ~ createur.image.name) }} " alt="card-img-top" width="100%" height="auto">
+    {% else %}    
+        <img src="{{ '/assets/images/black.jpg' }} " alt="card-img-top" width="100%" height="auto">
     {% endif %}
     <div class="card-body">
-        <h5 class="card-title">
+        <h5 class="card-title font-size-25 align-center">
             <a href="{{ path('createur.show', {slug: createur.slug, id: createur.id}) }}">
                 {{ createur.title }}
             </a>
         </h5>
-        <p class="card-text">{{ createur.ville }} ({{ createur.codepostal }})</p>
-        <p class="card-text">{{ createur.description }}</p>
+        <p class="card-text font-size-20 align-center">{{ createur.ville }} ({{ createur.codepostal }})</p>
+        <p class="card-text font-size-15 align-center">{{ createur.description }}</p>
     </div>
 </div>
 

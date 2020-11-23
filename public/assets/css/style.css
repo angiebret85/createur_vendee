@@ -97,9 +97,6 @@ html {
   margin-bottom: 0px;
 }
 
-#imgStellar {
-  background-image: url('../images/ordi_2.jpg');
-}
 
 .back-to-top {
   position: fixed;
@@ -151,4 +148,8 @@ html {
 
 .divImgAdminCreateur {
   display: inline;
+}
+
+.align-center {
+  text-align: center;
 }
