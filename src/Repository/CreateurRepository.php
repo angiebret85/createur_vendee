@@ -26,6 +26,26 @@ class CreateurRepository extends ServiceEntityRepository
      * @param CreateurSearch $search
      * @return \Doctrine\ORM\Query
      */
+    public function findCategorieQuery(CreateurSearch $search): \Doctrine\ORM\Query
+    {
+        $query = $this->findAllCreateurs();
+
+        if ($search->getCategories()->count() > 0){
+            $k=0;
+           foreach($search->getCategories() as $categorie){
+               $k++;
+               $query = $query
+                ->andWhere(":categorie$k MEMBER OF p.categories")
+                ->setParameter("categorie$k", $categorie);
+           }
+        }
+        return $query->getQuery();
+    }
+
+    /**
+     * @param CreateurSearch $search
+     * @return \Doctrine\ORM\Query
+     */
     public function findAllQuery(CreateurSearch $search): \Doctrine\ORM\Query
     {
         $query = $this->findAllCreateurs();

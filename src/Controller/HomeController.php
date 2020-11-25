@@ -15,7 +15,7 @@ class HomeController extends AbstractController
      */
     public function index(CreateurRepository $repository): Response
     {
-        $createurs = $repository->findLatest();
+        $createurs = $repository->findAll();
         return $this->render('pages/home.html.twig', [
             'createurs' => $createurs
         ]);

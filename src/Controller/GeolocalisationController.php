@@ -15,7 +15,7 @@ class GeolocalisationController extends AbstractController
      */
     public function index(CreateurRepository $repository): Response
     {
-        $createurs = $repository->findLatest();
+        $createurs = $repository->findAll();
         return $this->render('createur/geolocalisation.html.twig', [
             'createurs' => $createurs
         ]);

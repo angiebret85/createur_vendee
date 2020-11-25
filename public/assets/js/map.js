@@ -23,5 +23,4 @@ $(document).ready
             }).addTo(map)
             L.marker(center, {icon:icon}).addTo(map)
           }
-        
 )

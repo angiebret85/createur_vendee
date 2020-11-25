@@ -14,13 +14,10 @@
     </div>
 </div>
 {% for createur in createurs %}
-    <div  style="width: 100%; height: 800px;" id="map" data-lat="{{ createur.lat }}" data-lng="{{ createur.lng }}">
- 
+    <div  style="width: 100%; height: 750px;" id="map" data-lat="{{ createur.lat }}" data-lng="{{ createur.lng }}" data-name="{{ createur.title }}">
+    </div>
 {% endfor %}
-</div>
-{% endblock %}
-{% block stylesheet %}
-<link rel="stylesheet" href="{{ asset('/assets/css/style.css') }}">
+
 {% endblock %}
 
 {% block javascripts %}

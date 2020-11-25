@@ -75,29 +75,6 @@ html {
 #backToTop:hover {
   background-color: #555;
 } 
-
-#map {
-  width: 300px; 
-  height: 300px;
-}
-
-#btnRecaptcha {
-  padding-top: 5px;
-}
-
-#iconContact {
-  width: 27px; 
-  height:27px; 
-  margin-right: 5px;
-}
-
-#contactMail {
-  font-size: 14px; 
-  line-height: 21px; 
-  margin-bottom: 0px;
-}
-
-
 .back-to-top {
   position: fixed;
   bottom: 25px;
@@ -136,11 +113,6 @@ html {
   align-items:center; 
 }
 
-.divOcean{
-  background-image: url('../images/ocean.jpg') ; 
-  background-repeat: no-repeat; 
-  background-size :  100% 400px; 
-}
 
 .jumbotron {
   background-image: url("../images/ocean.jpg");

@@ -7,70 +7,70 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8">
-            
             </div>
             <div class="col-md-4">
                 <h1>{{ createur.title }}</h1>
-                <h2>{{ createur.description }}<h2>
-                <div class="text-dark">{{ createur.ville}}</div>
+                <h6>{{ createur.minidescriptif }}<h6>
+                <h3 class="text-dark">{{ createur.ville}} ({{ createur.codepostal }})</h3>
                 <a href="#" class="btn btn-secondary" id="contactButton">Contacter le créateur</a>
             </div>
         </div>
     </div>
 </div>
-<div id="map" style="width: 100%; height: 400px;" data-lat="{{ createur.lat }}" data-lng="{{ createur.lng }}">
-
+<div class = "container mt-4">
 </div>
-
-
 <div class="container mt-4">
-
-            <p>
-                {{ createur.description | nl2br }}
-            </p>
+    <p>
+        {{ createur.description | nl2br }}
+    </p>   
+    <div class="row">
+        <div class="col-md-4" id="contactForm" style="display: none;">
+            <h2>Cordonnées</h2>
+            <table class="table table-striped">
+                <tr>
+                    <td>mail</td>
+                    <td>{{ createur.email }}</td>
+                </tr>
+                <tr>
+                    <td>Telephone</td>
+                    <td>{{ createur.telephone }}</td>
+                </tr>
+                <tr>
+                    <td>Adresse</td>
+                    <td>{{ createur.adresse }} {{ createur.codepostal }} {{ createur.ville }}</td>
+                </tr>
+                <tr>
+                    <td>Site internet</td>
+                    <td><a href="{{ createur.internet }}" target="_blank">{{ createur.internet }}</a></td>
+                </tr>
+                <tr>
+                    <td>Facebook</td>
+                    <td><a href="{{ createur.facebook }}" target="_blank">{{ createur.facebook }}</a></td>
+                </tr>
+                <tr>
+                    <td>Instagram</td>
+                    <td><a href="{{ createur.instagram }}" target="_blank">{{ createur.instagram }}</a></td>
+                </tr>
+            </table>
+        </div>
+    </div>   
+    <div class="row">    
+        <div class="col-md-8" display= "inline" >
+            <h2>Réalisations</h2>
             <div class="row">
-                <div class="col-md-4" id="contactForm" style="display: none;">
-                    <h2>Cordonnées</h2>
-                    <table class="table table-striped">
-                        <tr>
-                            <td>Mini descriptif</td>
-                            <td>{{ createur.minidescriptif }} </td>
-                        </tr>
-                        <tr>
-                            <td>mail</td>
-                            <td>{{ createur.email }}</td>
-                        </tr>
-                        <tr>
-                            <td>Telephone</td>
-                            <td>{{ createur.telephone }}</td>
-                        </tr>
-                        <tr>
-                            <td>Facebook</td>
-                            <td>{{ createur.facebook }}</td>
-                        </tr>
-                        <tr>
-                            <td>Twitter</td>
-                            <td>{{ createur.twitter }}</td>
-                        </tr>
-                    </table>
-                </div>
-               <div class="col-md-8" display= "inline" >
-               <h2>Réalisations</h2>
-               <div class="row">
                {% if createur.images %}
-        {% for image in createur.images %}
-            <div class="col-md-4" >
-            
-                <img src="{{ asset('/uploads/' ~ image.name) }}" alt="card-img-top" width="200px" >
-                <p></p>
-            </div>    
-        {% endfor %} 
-    {% endif %}
+                    {% for image in createur.images %}
+                        <div class="col" >
+                            <img src="{{ asset('/uploads/' ~ image.name) }}" alt="card-img-top" width="200px" >
+                            <p></p>
+                        </div>    
+                    {% endfor %} 
+                {% endif %}
             </div>
         </div>
     </div>
+</div>    
 {% endblock %}
 {% block javascripts %}
 <script src="../assets/js/select.js"></script>
-<script src="../assets/js/map.js"></script>
 {% endblock %}
