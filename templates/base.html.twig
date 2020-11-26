@@ -3,7 +3,11 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
+        <meta name = "description" content="Créateurs-vendée est une plateforme qui regroupe les créateurs, artistes vendéens.
+        Vous trouverez sur ce site, des créateurs de bijoux, d'accessoires, de vêtements, de produits de beauté, de décoration,
+        ainsi que des peintres. Achetez local !">
         
+        <link rel="shortcut icon" href="{{ asset('/assets/images/ocean.jpg') }}">
         <link rel="stylesheet" href="{{ asset('/assets/css/bootstrap.min.css') }}">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="{{ asset('/assets/css/style.css') }}">
@@ -12,6 +16,8 @@
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
         integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
         crossorigin=""/> 
+        <link rel="stylesheet" href="{{ asset('/assets/fonts/icomoon/style.css') }}">
+        <link rel="stylesheet" href="{{ asset('/assets/fonts/flaticon/font/flaticon.css') }}">
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
