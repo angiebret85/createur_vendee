@@ -96,6 +96,18 @@
     <script src="{{ asset('/assets/js/select.js') }}"></script>
     <script src="{{ asset('/assets/js/geolocalisation.js') }}"></script>
     <script src="{{ asset('/assets/js/images.js') }}"></script>
+   <script>
+window.axeptioSettings = {
+  clientId: "5fe0ca2d5558222597b68a71",
+  cookiesVersion: "createurs-vendee-base",
+};
+ 
+(function(d, s) {
+  var t = d.getElementsByTagName(s)[0], e = d.createElement(s);
+  e.async = true; e.src = "//static.axept.io/sdk.js";
+  t.parentNode.insertBefore(e, t);
+})(document, "script");
+</script>
     {% endblock %}  
     </body>
 </html>
